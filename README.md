@@ -6,9 +6,8 @@
 
 📂 **Repositório do Projeto Acadêmico no GitHub:** [e-SUS_Sinan_Mpox_ML-Workflow](https://github.com/Cristie-Lima/e-SUS_Sinan_Mpox_ML-Workflow)  
 
-👩‍🎓 **Alunos:**  
+👩‍🎓 **Aluna:**  
 - A. Cristiane R. Lima (Cristie)  
-- José Henrique Santos Cavalcante (Henrique)  
 
 📅 **Data:** 03?? de setembro de 2025  
 
