@@ -1,5 +1,5 @@
 ---
-## **Pós-graduação em Ciência de Dados (2025/2026)**
+## **Pós-graduação em Ciência de Dados (2025/2026)** 
 
 **Escola Superior de Tecnologia da Universidade Estadual do Amazonas - EST/UEA**
     
