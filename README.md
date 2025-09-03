@@ -21,7 +21,19 @@ No Brasil, o **sistema e-SUS Sinan** tem sido fundamental para o registro e moni
 
 Este projeto tem como objetivo aplicar **técnicas de aprendizado de máquina** para explorar, tratar e modelar os dados disponíveis, com foco na geração de **insights preditivos** que possam apoiar estratégias de vigilância e resposta.  
 
-A abordagem contempla desde o **pré-processamento e imputação de dados** até a **construção e uso de modelos supervisionados**, seguindo diretrizes metodológicas discutidas em ambiente acadêmico.
+A abordagem contempla desde o **aquisição, análise descritiva/exploratória e pré-processamento** até a **construção e uso de modelos supervisionados**, seguindo diretrizes metodológicas discutidas em ambiente acadêmico.
+
+---
+
+## ✅ Objetivos Gerais
+- Estruturar um **workflow completo de Machine Learning aplicado à saúde pública**.  
+- Validar diferentes estratégias de **pré-processamento e balanceamento de dados**.  
+- Comparar modelos supervisionados para **classificação binária**.  
+- Gerar insights que possam **auxiliar vigilância epidemiológica** e políticas públicas.  
+
+---
+
+📌 **Observação:** Este projeto é de caráter acadêmico e não substitui protocolos médicos ou epidemiológicos oficiais.  
 
 ---
 
@@ -66,18 +78,8 @@ A abordagem contempla desde o **pré-processamento e imputação de dados** até
      - Evitar overfitting.  
 
 7. **Uso do modelo treinado**  
-   - Serialização dos transformadores e do modelo.  
+   - Serialização dos transformadores e do modelo.
+---
+
    - Predição em novos dados.  
-
----
-
-## ✅ Objetivos Gerais
-- Estruturar um **workflow completo de Machine Learning aplicado à saúde pública**.  
-- Validar diferentes estratégias de **pré-processamento e balanceamento de dados**.  
-- Comparar modelos supervisionados para **classificação binária**.  
-- Gerar insights que possam **auxiliar vigilância epidemiológica** e políticas públicas.  
-
----
-
-📌 **Observação:** Este projeto é de caráter acadêmico e não substitui protocolos médicos ou epidemiológicos oficiais.  
 
