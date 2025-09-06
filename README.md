@@ -9,7 +9,7 @@
 👩‍🎓 **Aluna:**  
 - A. Cristiane R. Lima (Cristie)  
 
-📅 **Data:** 03?? de setembro de 2025  
+📅 **Data:** 03 de setembro de 2025  
 
 ---
 
@@ -21,17 +21,15 @@ No Brasil, o **sistema e-SUS Sinan** tem sido fundamental para o registro e moni
 
 Este projeto tem como objetivo aplicar **técnicas de aprendizado de máquina** para explorar, tratar e modelar os dados disponíveis, com foco na geração de **insights preditivos** que possam apoiar estratégias de vigilância e resposta.  
 
-A abordagem contempla desde o **aquisição, análise descritiva/exploratória e pré-processamento** até a **construção e uso de modelos supervisionados**, seguindo diretrizes metodológicas discutidas em ambiente acadêmico.
+A abordagem contempla desde o **pré-processamento e análise exploratória (EDA)** até a **engenharia de atributos, balanceamento e modelagem supervisionada**, seguindo diretrizes metodológicas discutidas em ambiente acadêmico.  
 
 ---
 
 ## ✅ Objetivos Gerais
 - Estruturar um **workflow completo de Machine Learning aplicado à saúde pública**.  
-- Validar diferentes estratégias de **pré-processamento e balanceamento de dados**.  
-- Comparar modelos supervisionados para **classificação binária**.  
-- Gerar insights que possam **auxiliar vigilância epidemiológica** e políticas públicas.  
-
----
+- Validar diferentes estratégias de **pré-processamento, codificação e balanceamento**.  
+- Comparar modelos supervisionados para **classificação binária** em múltiplos targets.  
+- Gerar insights que possam **auxiliar vigilância epidemiológica** e apoiar políticas públicas.  
 
 📌 **Observação:** Este projeto é de caráter acadêmico e não substitui protocolos médicos ou epidemiológicos oficiais.  
 
@@ -39,47 +37,60 @@ A abordagem contempla desde o **aquisição, análise descritiva/exploratória e
 
 ## ⚙️ Estrutura dos Notebooks
 
-🔹 **Parte 1 – Pré-processamento (`cristie_mod6_proj_final_parte_1.ipynb`)**  
-1. **Limpeza de dados incorretos**  
-   - Identificação de valores inválidos (ex.: idades < 0, datas futuras, preços absurdos).  
-   - Correção ou remoção das entradas inconsistentes.  
+### 🔹 Parte 1 – Pré-processamento & EDA  
+Arquivo: `cristie_mod6_proj_final_parte_1.ipynb`  
 
-2. **Imputação de valores faltantes**  
-   - Identificação de valores ausentes (`NaN`, `?`).  
-   - Aplicação de técnicas de imputação: média e moda.  
+1. **Aquisição, limpeza e imputação de dados**  
+   - Correção de tipos, remoção/correção de registros inválidos.  
+   - Imputação de valores ausentes com média/moda.  
+
+2. **Visualizações exploratórias (EDA)**  
+   - Histogramas e boxplots (NU_IDADE_N, CONTAG_CD4).  
+   - Identificação e interpretação de outliers.  
+   - Síntese interpretativa consolidada.  
 
 3. **Codificação de variáveis categóricas**  
-   - Uso de `OrdinalEncoder` e `OneHotEncoder`.  
+   - Uso de `OneHotEncoder` (não há variáveis ordinais).  
+   - Auditoria dimensional (85 → 1392 colunas).  
 
 4. **Escalonamento de variáveis numéricas**  
-   - Uso de `StandardScaler` e `MinMaxScaler`.  
+   - Teste com `StandardScaler` e `MinMaxScaler`.  
+   - Registro de impacto gráfico/estatístico.  
+
+5. **Seleção de atributos**  
+   - Auditoria pós-correlação (1392 → 1019 colunas).  
+
+6. **Persistência do dataset pré-processado**  
+   - Serialização do `df_prep` em `.parquet`.  
 
 ---
 
-🔹 **Parte 2 – Modelagem (`cristie_mod6_proj_final_parte_2.ipynb`)**  
-5. **Balanceamento dos dados**  
-   - Verificação de desbalanceamento da variável alvo.  
-   - Aplicação dos algoritmos `Tomek` e `SMOTE`.  
-   - Avaliação do impacto no desempenho dos modelos.  
+### 🔹 Parte 2 – Engenharia de Atributos & Modelagem  
+Arquivo: `cristie_mod6_proj_final_parte_2.ipynb`  
 
-6. **Treinamento de Modelos de Machine Learning**  
-   - Tarefas: classificação binária.  
-   - Modelos avaliados:  
-     - Naive Bayes  
-     - Árvore de Decisão  
-     - Random Forest  
-     - kNN (K-Nearest Neighbors)  
-     - Regressão Logística  
-     - SVM (Support Vector Machine)  
-     - Redes Neurais Artificiais  
-   - Estratégias:  
-     - Avaliar impacto das técnicas de imputação e codificação.  
-     - Ajustar hiperparâmetros via GridSearch e Validação Cruzada.  
-     - Evitar overfitting.  
+1. **Carregamento dos dados**  
+   - Desserialização do `df_prep`.  
 
-7. **Uso do modelo treinado**  
-   - Serialização dos transformadores e do modelo.
----
+2. **Engenharia de Atributos**  
+   - Criação dos targets binários:  
+     - `target_hosp` (hospitalização).  
+     - `target_obito_any` (óbito por qualquer causa).  
+     - `target_obito_mpx` (óbito por Mpox).  
 
+3. **Análise de classes**  
+   - Distribuição dos targets binários (barras horizontais com percentuais).  
+
+4. **Balanceamento dos dados**  
+   - Aplicação sequencial: `Tomek Links → SMOTE`.  
+   - Justificativa metodológica (sensibilidade de métricas).  
+
+5. **Treinamento e Validação de Modelos**  
+   - Classificação binária com múltiplos algoritmos:  
+     - Naive Bayes, Árvore de Decisão, Random Forest, kNN, Regressão Logística, SVM, Redes Neurais.  
+   - Comparação de desempenho com diferentes escalonadores.  
+   - Validação cruzada estratificada.  
+   - Métricas robustas: **F1-score, AUC-PR**.  
+
+6. **Persistência e Uso do Modelo Final**  
+   - Serialização do pipeline completo (`pré-processamento + balanceamento + modelo`) em `.pkl`.  
    - Predição em novos dados.  
-
