@@ -3,7 +3,6 @@
 Ref. Notebook: [cristie_mod6_proj_final_parte_1.ipynb](https://github.com/Cristie-Lima/e-SUS_Sinan_Mpox_ML-Workflow/blob/main/cristie_mod6_proj_final_parte_1.ipynb)
 
 ## 📌 Fluxo de Persistência de Dados e Modelos
-
 ```mermaid
 flowchart TD
 
