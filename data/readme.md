@@ -4,23 +4,20 @@ Ref. Notebook: [cristie_mod6_proj_final_parte_1.ipynb](https://github.com/Cristi
 
 ## 📌 Fluxo de Persistência de Dados e Modelos
 
-A persistência de datasets e objetos é essencial para garantir **reprodutibilidade** e **consistência** entre as etapas do pipeline.  
-A figura abaixo resume quais artefatos devem ser serializados em cada fase:
-
 ```mermaid
 flowchart TD
 
-    A[Dataset bruto (df_raw)] --> B[Pré-processamento (df_prep)]
-    B --> C[Engenharia de atributos (df_feateng)]
-    C --> D[Codificação categóricas (df_eng_ohe)]
-    D --> |Persistência| E[💾 Salvar em .parquet]
+    A["Dataset bruto: df_raw"] --> B["Pré-processamento: df_prep"]
+    B --> C["Engenharia de atributos: df_feateng"]
+    C --> D["Codificação categóricas: df_eng_ohe"]
+    D --> |Persistência| E["💾 Salvar em .parquet"]
 
-    D --> F[Escalonamento (StandardScaler / MinMaxScaler)]
-    F --> |Persistência| G[💾 Salvar escalonadores em .pkl]
-    F --> H[Modelagem]
+    D --> F["Escalonamento: StandardScaler / MinMaxScaler"]
+    F --> |Persistência| G["💾 Salvar escalonadores em .pkl"]
+    F --> H["Modelagem"]
 
     E --> H
     G --> H
 
-    H[Modelagem supervisionada] --> I[Modelos treinados]
-    I --> |Persistência| J[💾 Salvar modelos em .pkl]
+    H["Modelagem supervisionada"] --> I["Modelos treinados"]
+    I --> |Persistência| J["💾 Salvar modelos em .pkl"]
