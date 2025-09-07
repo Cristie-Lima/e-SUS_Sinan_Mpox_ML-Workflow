@@ -1,8 +1,13 @@
-Resultados das etapas cumpridas na primeira fase  do Projeto. 
+## 📌 Resultados das etapas cumpridas na primeira fase  do Projeto. 
 
 Ref. Notebook: [cristie_mod6_proj_final_parte_1.ipynb](https://github.com/Cristie-Lima/e-SUS_Sinan_Mpox_ML-Workflow/blob/main/cristie_mod6_proj_final_parte_1.ipynb)
 
+## 📌 Fluxo de Persistência de Dados e Modelos
 
+A persistência de datasets e objetos é essencial para garantir **reprodutibilidade** e **consistência** entre as etapas do pipeline.  
+A figura abaixo resume quais artefatos devem ser serializados em cada fase:
+
+```mermaid
 flowchart TD
 
     A[Dataset bruto (df_raw)] --> B[Pré-processamento (df_prep)]
@@ -19,5 +24,3 @@ flowchart TD
 
     H[Modelagem supervisionada] --> I[Modelos treinados]
     I --> |Persistência| J[💾 Salvar modelos em .pkl]
-
-
