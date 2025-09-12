@@ -5,6 +5,7 @@
 **Professor:** Prof. Me. Mario Bessa  
 
 📂 **Repositório do Projeto Acadêmico no GitHub:** [e-SUS_Sinan_Mpox_ML-Workflow](https://github.com/Cristie-Lima/e-SUS_Sinan_Mpox_ML-Workflow)  
+📂 **Apresentação**: [apresentacao_cristie_mod6_proj_final](https://notebooksharing.space/view/030aed325c8e09961eb80bfe1b2bde6ad5e306ada46882d009ed90773ff9b449#displayOptions=show-linenos)
 
 👩‍🎓 **Aluna:**  
 - A. Cristiane R. Lima (Cristie)  
